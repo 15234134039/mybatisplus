@@ -17,6 +17,10 @@ public class User {
 
     //@TableId(type = IdType.AUTO)
     /**
+     * 主键生成方式：uuid、自增id、雪花算法、redis、zookeeper
+     *
+     *
+     *
      * 默认为ID_WORKER，雪花算法
      * public enum IdType {
      *   AUTO(0),  //数据库id自增
@@ -36,6 +40,12 @@ public class User {
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
+
+    /**
+     * 逻辑删除
+     */
+    @TableLogic
+    private Integer deleted;
 
     /**
      * 乐观锁Version注解
